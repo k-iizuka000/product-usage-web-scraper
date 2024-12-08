@@ -1,0 +1,14 @@
+FROM python:3.11
+
+# 作業用ディレクトリ設定
+WORKDIR /app
+
+# スクリプトや要ファイルをコピー（ホスト側にsearch_export.pyがあると想定）
+COPY py/search_export.py /app/
+
+# 必要パッケージのインストール
+RUN pip install requests pandas openpyxl
+
+CMD ["python", "search_export.py"]
+
+
